@@ -11,3 +11,18 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+CONTAINERS_HOST="containers.local"
+function lxc-ls() { ssh -q root@$CONTAINERS_HOST lxc-ls "$@" }
+function lxc-clone() { ssh -q root@$CONTAINERS_HOST lxc-clone  "$@" }
+function lxc-copy() { ssh -q root@$CONTAINERS_HOST lxc-copy "$@" }
+function lxc-start() { ssh -q root@$CONTAINERS_HOST lxc-start  "$@" }
+function lxc-start-ephemeral() { ssh -q root@$CONTAINERS_HOST lxc-start-ephemeral "$@" }
+function lxc-stop() { ssh -q root@$CONTAINERS_HOST lxc-stop "$@" }
+function lxc-destroy() { ssh -q root@$CONTAINERS_HOST lxc-destroy "$@" }
+
+
+# disable fucking correction
+unsetopt correct
+
+export EDITOR=vim
